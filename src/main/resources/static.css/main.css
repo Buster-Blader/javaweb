@@ -1,0 +1,18 @@
+h1{
+    color:yellow;
+}
+
+h2{
+    color: #ff0000;
+}
+
+footer{
+    text-align: left;
+    margin-top:60px;
+    padding: 3px;
+    background-color: darkcyan;
+    color: white;
+}
+header{
+    background-color: #0000FF;
+}

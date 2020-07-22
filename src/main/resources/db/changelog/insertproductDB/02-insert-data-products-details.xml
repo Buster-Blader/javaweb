@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="07" author="Blader">
+        <comment>Inserting product_details</comment>
+        <insert tableName="product_details ">
+            <column name="productID" valueNumeric="1002"/>
+            <column name="comment" value="Bút màu xanh rất đẹp"/>
+        </insert>
+        <insert tableName="product_details ">
+            <column name="productID" valueNumeric="1003"/>
+            <column name="comment" value="Bút màu đen rất đẹp"/>
+        </insert>
+        <insert tableName="product_details ">
+            <column name="productID" valueNumeric="1004"/>
+            <column name="comment" value="Bút chì 2B rất đẹp"/>
+        </insert>
+        <insert tableName="product_details ">
+            <column name="productID" valueNumeric="1005"/>
+            <column name="comment" value="Bút chì 5H rất đẹp"/>
+        </insert>
+        <insert tableName="product_details ">
+            <column name="productID" valueNumeric="1006"/>
+            <column name="comment" value="Bút chì HB rất đẹp"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

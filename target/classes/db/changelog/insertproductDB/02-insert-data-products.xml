@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="06" author="Blader">
+        <comment>Inserting products</comment>
+        <insert tableName="products ">
+            <column name="productID" valueNumeric="1001"/>
+            <column name="productCode" value="PEN"/>
+            <column name="name" value="Pen Red"/>
+            <column name="quantity" valueNumeric="5000"/>
+            <column name="price" valueNumeric="1.23"/>
+        </insert>
+        <insert tableName="products">
+            <column name="productCode" value="PEN"/>
+            <column name="name" value="Pen Blue"/>
+            <column name="quantity" valueNumeric="3000"/>
+            <column name="price" valueNumeric="1.25"/>
+        </insert>
+        <insert tableName="products">
+            <column name="productCode" value="PEN"/>
+            <column name="name" value="Pen Black"/>
+            <column name="quantity" valueNumeric="4000"/>
+            <column name="price" valueNumeric="1.25"/>
+        </insert>
+        <insert tableName="products">
+            <column name="productCode" value="PEC"/>
+            <column name="name" value="Pencil 2B"/>
+            <column name="quantity" valueNumeric="10000"/>
+            <column name="price" valueNumeric="0.48"/>
+        </insert>
+        <insert tableName="products">
+            <column name="productCode" value="PEC"/>
+            <column name="name" value="Pencil 2H"/>
+            <column name="quantity" valueNumeric="8000"/>
+            <column name="price" valueNumeric="0.49"/>
+        </insert>
+        <insert tableName="products">
+            <column name="productCode" value="PEC"/>
+            <column name="name" value="Pencil HB"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

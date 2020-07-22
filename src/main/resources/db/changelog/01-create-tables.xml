@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="01" author="Blader">
+    <createTable tableName="APP_USER"
+                 remarks="A table to contain all users">
+      <column name="USER_ID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="USER_NAME" type="varchar(36)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="ENCRYTED_PASSWORD" type="varchar(128)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="ENABLED" type="BIT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="APP_ROLE"
+                 remarks="A table to contain all the role">
+      <column name="ROLE_ID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="ROLE_NAME" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="Persistent_Logins"
+                 remarks="A table to contain persistent">
+      <column name="USERNAME" type="varchar(64)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="series" type="varchar(64)">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="token" type="varchar(64)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_used" type="timestamp">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="USER_ROLE"
+                 remarks="A table to contain user and role">
+      <column name="ID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="USER_ID" type="BIGINT">
+        <constraints nullable="false" foreignKeyName="fk1" references="App_User(USER_ID)"/>
+      </column>
+      <column name="ROLE_ID" type="BIGINT">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="products"
+                 remarks="A table to contain products">
+      <column name="productID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="productCode  " type="char(3)" defaultValue="">
+        <constraints nullable="false" />
+      </column>
+      <column name="name" type="VARCHAR(30)" defaultValue="">
+        <constraints nullable="false"/>
+      </column>
+      <column name="quantity" type="INT UNSIGNED" defaultValue="0">
+        <constraints nullable="false"/>
+      </column>
+      <column name="price" type="DECIMAL(7,2)" defaultValue="0">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="suppliers"
+                 remarks="A table to contain suppliers">
+      <column name="supplierID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" unique="true" primaryKey="true"/>
+      </column>
+      <column name="name" type="VARCHAR(30)" defaultValue="">
+        <constraints nullable="false" />
+      </column>
+      <column name="phone" type="CHAR(8)" defaultValue="">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="products_suppliers"
+                 remarks="A table to contain products_suppliers">
+      <column name="productID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true" foreignKeyName="products_fk" references="products(productID)"/>
+      </column>
+      <column name="supplierID" type="BIGINT" >
+        <constraints nullable="false" primaryKey="true" foreignKeyName="suppliers_fk" references="suppliers(supplierID)"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="product_details "
+                 remarks="A table to contain products_suppliers">
+      <column name="productID" type="BIGINT" autoIncrement="true">
+        <constraints nullable="false" primaryKey="true" foreignKeyName="products_fk2" references="products(productID)"/>
+      </column>
+      <column name="comment" type="TEXT" >
+        <constraints nullable="true" />
+      </column>
+    </createTable>
+
+
+    <addForeignKeyConstraint baseTableName="USER_ROLE" baseColumnNames="USER_ID" constraintName="FK2"
+                             referencedTableName="APP_ROLE"
+                             referencedColumnNames="ROLE_ID"/>
+
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="08" author="Blader">
+        <comment>Inserting products_suppliers</comment>
+        <insert tableName="products_suppliers ">
+            <column name="productID" valueNumeric="1001"/>
+            <column name="supplierID" valueNumeric="501"/>
+        </insert>
+        <insert tableName="products_suppliers ">
+            <column name="productID" valueNumeric="1002"/>
+            <column name="supplierID" valueNumeric="501"/>
+        </insert>
+        <insert tableName="products_suppliers ">
+            <column name="productID" valueNumeric="1003"/>
+            <column name="supplierID" valueNumeric="501"/>
+        </insert>
+        <insert tableName="products_suppliers ">
+            <column name="productID" valueNumeric="1004"/>
+            <column name="supplierID" valueNumeric="502"/>
+        </insert>
+        <insert tableName="products_suppliers ">
+            <column name="productID" valueNumeric="1001"/>
+            <column name="supplierID" valueNumeric="503"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
