@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
-@RestController
+@Controller
 public class DefaultController {
 
     private final Logger LOG = LoggerFactory.getLogger(getClass());
@@ -74,12 +74,12 @@ public class DefaultController {
 //        return ResponseEntity.ok(appUserRepository.findByName(id));
 //    }
 
-    @Cacheable(value = "users",key = "#id",unless = "#result.userId==2")
-    @GetMapping("/api/user/{id}")
-    public AppUser process(@PathVariable("id") Long id){
-     //   HttpHeaders httpHeaders=new HttpHeaders();
-       // httpHeaders.set("he llo","greet");
-        LOG.info("Getting user with ID {}.", id);
-        return appUserRepository.findOne(id);
-    }
+//    @Cacheable(value = "users",key = "#id",unless = "#result.userId==2")
+//    @GetMapping("/api/user/{id}")
+//    public AppUser process(@PathVariable("id") Long id){
+//     //   HttpHeaders httpHeaders=new HttpHeaders();
+//       // httpHeaders.set("he llo","greet");
+//        LOG.info("Getting user with ID {}.", id);
+//        return appUserRepository.findOne(id);
+//    }
 }
